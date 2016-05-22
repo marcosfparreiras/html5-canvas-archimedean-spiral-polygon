@@ -8,7 +8,7 @@ $(document).ready(function() {
   });
 
   function draw_polygon(  x_position, y_position, max_i_value, i_increment,
-                          angle_increment, axis_increment
+                          angle_increment, axis_increment, color
                         ) {
     context.beginPath();
     for (i=0; i< max_i_value; i= i + i_increment) {
@@ -18,7 +18,8 @@ $(document).ready(function() {
       context.lineTo(x, y);
     }
     context.lineWidth = 1.;
-    context.strokeStyle = random_color();
+    // context.strokeStyle = random_color();
+    context.strokeStyle = color;
     context.stroke();
   }
 
@@ -26,21 +27,24 @@ $(document).ready(function() {
     context.clearRect(0, 0, canvas.width, canvas.height);
   }
 
-  function draw_random() {
+  function draw_random(color) {
     max_i_value = 4000;
     i_increment = (Math.random() * 100) + 1;
     angle_increment = 0.1;
     axis_increment = Math.random() + 0.1;
     // axis_increment = 1;
-    draw_polygon(400, 300, max_i_value, i_increment, angle_increment, axis_increment);
+    draw_polygon(400, 300, max_i_value, i_increment, angle_increment, axis_increment, color);
   }
 
   function clear_and_draw_random() {
     clear_draw();
     var bg_color = random_color();
+    var draw_color = random_color();
     $('#myCanvas').css('background-color', bg_color);
     $('body').css('background-color', bg_color);
-    draw_random();
+
+    $('#text').css('color', draw_color);
+    draw_random(draw_color);
   }
 
   function random_color() {
