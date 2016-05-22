@@ -7,3 +7,12 @@
   /*margin-top:-400px;*/
   margin-left:-400px;
 }
+
+#myCanvas {
+  border:1px solid #c3c3c3;
+}
+
+#inner {
+    width: 50%;
+    margin: 0 auto;
+}
