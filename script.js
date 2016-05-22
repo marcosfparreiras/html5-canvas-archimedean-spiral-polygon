@@ -1,6 +1,7 @@
 $(document).ready(function() {
   var canvas = document.getElementById('myCanvas');
   var context = canvas.getContext('2d');
+  clear_and_draw_random();
 
   $(document).click(function() {
     clear_and_draw_random();
@@ -16,6 +17,8 @@ $(document).ready(function() {
       y=(axis_increment+angle)*Math.sin(angle) + y_position;
       context.lineTo(x, y);
     }
+    context.lineWidth = 1.;
+    context.strokeStyle = random_color();
     context.stroke();
   }
 
@@ -25,15 +28,23 @@ $(document).ready(function() {
 
   function draw_random() {
     max_i_value = 4000;
-    i_increment = Math.floor((Math.random() * 100) + 1);
+    i_increment = (Math.random() * 100) + 1;
     angle_increment = 0.1;
-    axis_increment = 1;
+    axis_increment = Math.random() + 0.1;
+    // axis_increment = 1;
     draw_polygon(400, 300, max_i_value, i_increment, angle_increment, axis_increment);
   }
 
   function clear_and_draw_random() {
     clear_draw();
+    var bg_color = random_color();
+    $('#myCanvas').css('background-color', bg_color);
+    $('body').css('background-color', bg_color);
     draw_random();
+  }
+
+  function random_color() {
+    return '#'+Math.floor(Math.random()*16777215).toString(16);
   }
 });
 
