@@ -18,6 +18,7 @@ function draw_polygon(  context,
                         angle_increment,
                         axis_increment
                       ) {
+  context.beginPath();
   for (i=0; i< max_i_value; i= i + i_increment) {
     angle = angle_increment * i;
     x=(axis_increment+angle)*Math.cos(angle) + x_position;
@@ -45,6 +46,11 @@ function draw_random() {
   axis_increment = 1;
   draw_polygon(context, 400, 300, max_i_value, i_increment, angle_increment, axis_increment);
 }
+
+
+
+
+
 // Cool draws
 // draw_polygon(context, 400, 300, 4000, 50, 0.1, 50);
 // draw_polygon(context, 400, 300, 4000, 7, 0.1, 3);
