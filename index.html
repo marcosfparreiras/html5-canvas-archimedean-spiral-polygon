@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html>
-<body>
+<head>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
 
-<button onClick="clear_draw()">Clear</button>
-<button onClick="draw_random()">Draw Random</button>
-<button onClick="clear_and_draw_random()"> Clear and Draw Random</button><br><br>
-<canvas id="myCanvas" width="800" height="600" style="border:1px solid #c3c3c3;">
-Your browser does not support the HTML5 canvas tag.
-</canvas>
+<body>
+  <div id="container" >
+    <button onClick="clear_draw()">Clear</button>
+    <button onClick="draw_random()">Draw Random</button>
+    <button onClick="clear_and_draw_random()"> Clear and Draw Random</button><br><br>
+    <canvas id="myCanvas" width="800" height="600" style="border:1px solid #c3c3c3;">
+    Your browser does not support the HTML5 canvas tag.
+    </canvas>
+  </div>
 
 <script>
 
